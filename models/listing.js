@@ -4,20 +4,26 @@ const Schema = mongoose.Schema;
 const listingSchema = new Schema({
     title: {
         type: String,
-        required: true,
+        required: true
     },
     description: String,
     image: {
-        type: String,
-        set: (v) =>
-            v === ""
-                ? "C:\Users\SNEHA\Downloads\salman-saqib-z6UAWpQAhXs-unsplash.jpg"
-                : v,
+        filename: {
+            type: String,
+            default: "listingimage"
+        },
+        url: {
+            type: String,
+            default: "https://via.placeholder.com/300"
+        }
     },
-    price: Number,
+    price: {
+        type: Number,
+        required: true
+    },
     location: String,
     country: String,
 });
 
 const Listing = mongoose.model("Listing", listingSchema);
-module.export = Listing;
+module.exports = Listing;
