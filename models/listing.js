@@ -9,14 +9,8 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-        filename: {
-            type: String,
-            default: "listingimage"
-        },
-        url: {
-            type: String,
-            default: "https://via.placeholder.com/300"
-        }
+       url: String,
+       filename: String,
     },
     price: {
         type: Number,
